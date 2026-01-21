@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aastha Nangia | Founder, Crack Shot Store</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Source 5: Accent Color Pink */
+      --pink: #ff69b4;
+      --pink-light: #ff85c2;
+      --bg-gradient: linear-gradient(to bottom right, #1e1e1f, #121212);
+      --border-color: #383838;
+      --text-white: #fafafa;
+      --text-gray: #d6d6d6;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Poppins', sans-serif; background: #121212; color: var(--text-white); padding: 50px 0; }
+    .container { max-width: 1200px; margin: auto; display: flex; gap: 25px; align-items: flex-start; }
+
+    /* Sidebar Styles [cite: 8-15] */
+    .sidebar { width: 300px; background: #1e1e1f; border: 1px solid var(--border-color); border-radius: 20px; padding: 30px; position: sticky; top: 50px; text-align: center; }
+    .sidebar img { width: 150px; border-radius: 20px; margin-bottom: 20px; background: #2b2b2c; }
+    .sidebar h1 { font-size: 1.5rem; margin-bottom: 10px; }
+    .sidebar .title { background: #2b2b2c; padding: 5px 15px; border-radius: 8px; font-size: 0.8rem; display: inline-block; margin-bottom: 20px; color: var(--pink); }
+    .contact-list { text-align: left; border-top: 1px solid var(--border-color); padding-top: 20px; font-size: 0.9rem; }
+    .contact-item { margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+
+    /* Main Content Styles */
+    .main-content { flex: 1; background: #1e1e1f; border: 1px solid var(--border-color); border-radius: 20px; padding: 30px; position: relative; }
+    nav { position: absolute; top: 0; right: 0; background: #2b2b2c; border-bottom-left-radius: 20px; border-top-right-radius: 20px; display: flex; padding: 10px 30px; gap: 20px; }
+    nav button { background: none; border: none; color: var(--text-gray); cursor: pointer; font-weight: 500; font-family: inherit; }
+    nav button.active { color: var(--pink); }
+
+    .content-section { display: none; }
+    .content-section.active { display: block; }
+
+    h2 { margin-bottom: 25px; position: relative; padding-bottom: 10px; }
+    h2::after { content: ''; position: absolute; bottom: 0; left: 0; width: 40px; height: 5px; background: var(--pink); border-radius: 3px; }
+
+    /* Resume Timeline [cite: 128-130] */
+    .timeline { margin-top: 30px; border-left: 1px solid var(--border-color); padding-left: 20px; margin-bottom: 40px; }
+    .timeline-item { position: relative; margin-bottom: 25px; }
+    .timeline-item::before { content: ''; position: absolute; left: -27px; top: 5px; width: 12px; height: 12px; background: var(--pink); border-radius: 50%; box-shadow: 0 0 0 4px #2b2b2c; }
+    .timeline-item h4 { color: var(--text-white); margin-bottom: 5px; }
+    .timeline-item span { color: var(--pink); font-size: 0.85rem; }
+
+    /* Skills [cite: 111-119] */
+    .skills-list { background: #2b2b2c; padding: 20px; border-radius: 15px; margin-top: 20px; }
+    .skill-item { margin-bottom: 15px; }
+    .skill-info { display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 0.9rem; }
+    .progress-bg { background: var(--border-color); height: 8px; border-radius: 10px; }
+    .progress-fill { background: var(--pink); height: 100%; border-radius: 10px; }
+
+    /* Availability Chart  */
+    .availability { display: flex; gap: 10px; height: 150px; align-items: flex-end; margin-top: 20px; }
+    .day { flex: 1; background: #2b2b2c; border-radius: 8px; position: relative; text-align: center; font-size: 0.7rem; color: #121212; font-weight: bold; }
+    .day span { position: absolute; bottom: -20px; left: 0; right: 0; color: var(--text-gray); }
+
+    .btn-pink { background: var(--pink); color: white; padding: 10px 20px; border-radius: 10px; text-decoration: none; display: inline-block; margin-top: 15px; font-weight: 600; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <aside class="sidebar">
+      <img src="assets/images/my-avatar.png" alt="Aastha Nangia"> <h1>Aastha Nangia</h1>
+      <p class="title">Founder, Crack Shot Store</p>
+      
+      <div class="contact-list">
+        <div class="contact-item">📧 <span>aastha.nangia@outlook.com</span></div>
+        <div class="contact-item">📅 <span>Oct 22, 1998</span></div>
+        <div class="contact-item">📍 <span>Hong Kong</span></div>
+      </div>
+
+      <div class="contact-list" style="border:none; display:flex; gap:10px; justify-content:center;">
+        <a href="https://www.linkedin.com/in/aastha-nangia/" style="color:var(--pink)">LinkedIn</a>
+        <a href="https://www.twitch.tv/crackshotplays" style="color:var(--pink)">Twitch</a>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <nav>
+        <button onclick="showTab('about')" class="nav-btn active">About</button>
+        <button onclick="showTab('resume')" class="nav-btn">Resume</button>
+        <button onclick="showTab('portfolio')" class="nav-btn">Portfolio</button>
+        <button onclick="showTab('blog')" class="nav-btn">Blog</button>
+        <button onclick="showTab('contact')" class="nav-btn">Contact</button>
+      </nav>
+
+      <section id="about" class="content-section active">
+        <h2>About Me</h2>
+        <p>Founder of Asia Pro League CS2 and HLTV Coverage specialist. I capture captivating live streams remotely for tournaments and events [cite: 19-20].</p>
+        
+        <h3 style="margin-top:20px;">What I'm Doing</h3>
+        <p>Currently focusing on Asia Pro League operations and providing remote technical broadcasting for international esports events[cite: 20].</p>
+
+        <h3 style="margin-top:20px;">Worked With</h3>
+        <p style="font-size:0.9rem; color:var(--text-gray)">Futurum Asia, Insidea, Behavioral Cues, Strokes, IGZ, Twitch India, Appu Ghar[cite: 24].</p>
+
+        <h3 style="margin-top:20px;">Testimonials</h3>
+        <p><em>"Aastha is extremely hard working and creative... A pleasure to work with!"</em> — James Ellender [cite: 30-31]</p>
+      </section>
+
+      <section id="resume" class="content-section">
+        <h2>Experience</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <h4>Management and Marketing Associate — Futurum Asia</h4>
+            <span>Nov 2022 - Nov 2023</span>
+            <p>Executed B2B strategies and built management systems for Asia teams [cite: 59-62].</p>
+          </div>
+        </div>
+
+        <h2>Gaming Section</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <h4>Women in Games Ambassador</h4>
+            <span>Apr 2023 - Present</span>
+            <p>Promoting inclusivity and equality in the gaming world [cite: 56-58].</p>
+          </div>
+          <div class="timeline-item">
+            <h4>Founder — Team Zenith</h4>
+            <span>Jan 2022 - Oct 2022</span>
+            <p>Led brand management and won Valorant Republic Battle [cite: 74-77].</p>
+          </div>
+        </div>
+
+        <h2>Education</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <h4>Bachelor of Business — University of Wollongong</h4>
+            <span>2020 - 2021</span> [cite: 47-49]
+          </div>
+        </div>
+
+        <h2>Skills</h2>
+        <div class="skills-list">
+          <div class="skill-item">
+            <div class="skill-info"><span>Marketing</span><span>100%</span></div>
+            <div class="progress-bg"><div class="progress-fill" style="width:100%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-info"><span>Personal Branding</span><span>90%</span></div>
+            <div class="progress-bg"><div class="progress-fill" style="width:90%"></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="portfolio" class="content-section">
+        <h2>Portfolio & Store</h2>
+        <p>Automatically synced with Behance[cite: 121]:</p>
+        <iframe src="https://www.behance.net/crackshot1" width="100%" height="400px" style="border:none; border-radius:15px; margin-top:15px;"></iframe>
+        
+        <h3 style="margin-top:30px;">Crack Shot Store</h3>
+        <p>Stunning custom metal prints and tech apparel[cite: 44].</p>
+        <a href="#" class="btn-pink">Visit Store</a>
+      </section>
+
+      <section id="blog" class="content-section">
+        <h2>Blog Stays</h2>
+        <div style="background:#2b2b2c; padding:30px; border-radius:15px; margin-top:20px;">
+          <h3>Exclusive content straight to your inbox</h3>
+          <div style="display:flex; gap:10px; margin-top:15px;">
+            <input type="text" placeholder="First name" style="flex:1; padding:10px; border-radius:5px; border:none; background:#121212; color:white;">
+            <input type="email" placeholder="Email Address" style="flex:1; padding:10px; border-radius:5px; border:none; background:#121212; color:white;">
+          </div>
+          <button class="btn-pink" style="width:100%">Subscribe to newsletter</button>
+        </div>
+      </section>
+
+      <section id="contact" class="content-section">
+        <h2>Contact</h2>
+        <p>Let’s talk about your upcoming project[cite: 22]!</p>
+        <a href="https://calendly.com/aasthanangia/30min" class="btn-pink">Book 30min Meeting</a>
+
+        <h3 style="margin-top:30px;">Weekly availability</h3>
+        <div class="availability">
+          <div class="day" style="height:80%; background:#a3e635;">5h <span>Mon</span></div>
+          <div class="day" style="height:10%; background:#383838; color:#383838;">0 <span>Tue</span></div>
+          <div class="day" style="height:60%; background:#a3e635;">4h <span>Wed</span></div>
+          <div class="day" style="height:100%; background:#a3e635;">6h <span>Thu</span></div>
+          <div class="day" style="height:30%; background:#ffc0cb;">2h <span>Fri</span></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    function showTab(tabId) {
+      document.querySelectorAll('.content-section').forEach(section => section.classList.remove('active'));
+      document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      event.currentTarget.classList.add('active');
+    }
+  </script>
+</body>
+</html>
